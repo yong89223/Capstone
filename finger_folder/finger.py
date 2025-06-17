@@ -66,7 +66,7 @@ def match_singularities(s1, s2, max_dist=20):
 
     return matches
 
-def singularity_similarity(s1, s2, max_dist=20):
+def singularity_similarity(s1, s2, max_dist=30):
     """
     2*|매칭| / (|s1| + |s2|)  →  [0,1]
     """
@@ -116,7 +116,7 @@ if __name__ == '__main__':
     img2 = cv.imread('finger2.png', 0)
     s1 = fingerprint_pipline(img1)
     s2 = fingerprint_pipline(img2)
-    sim = singularity_similarity(s1, s2, max_dist=20)
+    sim = singularity_similarity(s1, s2, max_dist=200)
     print(f"Singularity-based similarity: {sim:.2%}")
     
 
