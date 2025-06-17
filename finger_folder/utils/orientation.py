@@ -4,13 +4,7 @@ import cv2 as cv
 
 
 def calculate_angles(im, W, smoth=False):
-    """
-    anisotropy orientation estimate, based on equations 5 from:
-    https://pdfs.semanticscholar.org/6e86/1d0b58bdf7e2e2bb0ecbf274cee6974fe13f.pdf
-    :param im:
-    :param W: int width of the ridge
-    :return: array
-    """
+    
     j1 = lambda x, y: 2 * x * y
     j2 = lambda x, y: x ** 2 - y ** 2
     j3 = lambda x, y: x ** 2 + y ** 2
