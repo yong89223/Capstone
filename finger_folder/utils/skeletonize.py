@@ -1,25 +1,11 @@
-"""
-To facilitate extraction of minutiae the image must be skeletonized: a sequence of morphological
-erosion operations will reduce the thickness of the striations until the latter is equal to one pixel
-while maintaining the connectivity of the striations ( That is to say that the continuity of the
-striaes must be respected, holes must not be inserted). While some papers use Rosenfeld algorithm for its
-simplicity. [https://airccj.org/CSCP/vol7/csit76809.pdf pg.91] I used skimage Zha84 A fast parallel algorithm for
-thinning digital patterns, T. Y. Zhang and C. Y. Suen, Communications of the ACM, March 1984, Volume 27, Number 3.
-"""
+
 import numpy as np
 import cv2 as cv
 from utils.crossing_number import calculate_minutiaes
 from skimage.morphology import skeletonize as skelt
 from skimage.morphology import thin
 def skeletonize(image_input):
-    """
-    https://scikit-image.org/docs/dev/auto_examples/edges/plot_skeleton.html
-    Skeletonization reduces binary objects to 1 pixel wide representations.
-    skeletonize works by making successive passes of the image. On each pass, border pixels are identified
-    and removed on the condition that they do not break the connectivity of the corresponding object.
-    :param image_input: 2d array uint8
-    :return:
-    """
+    
     image = np.zeros_like(image_input)
     image[image_input == 0] = 1.0
     output = np.zeros_like(image_input)
