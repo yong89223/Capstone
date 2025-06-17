@@ -4,15 +4,7 @@ import cv2 as cv
 import numpy as np
 
 def poincare_index_at(i, j, angles, tolerance):
-    """
-    compute the summation difference between the adjacent orientations such that the orientations is less then 90 degrees
-    https://books.google.pl/books?id=1Wpx25D8qOwC&lpg=PA120&ots=9wRY0Rosb7&dq=poincare%20index%20fingerprint&hl=pl&pg=PA120#v=onepage&q=poincare%20index%20fingerprint&f=false
-    :param i:
-    :param j:
-    :param angles:
-    :param tolerance:
-    :return:
-    """
+    
     cells = [(-1, -1), (-1, 0), (-1, 1),         # p1 p2 p3
             (0, 1),  (1, 1),  (1, 0),            # p8    p4
             (1, -1), (0, -1), (-1, -1)]          # p7 p6 p5
